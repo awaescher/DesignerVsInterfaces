@@ -6,10 +6,10 @@ The new [out-of-process Windows Forms designer](https://devblogs.microsoft.com/d
 ![diagram](media/error-log.png)
 
 It took me quite a while to hunt this down but it seems that the new designer shows this error if ...
- - the form in question is derived from a base form (from the same or another library)
+ - the form in question is derived from a base form (from the same or another project)
  - the base form implements an interface
- - the interface is implemented in another library 
- - the other library is **referenced over an transient project reference**
+ - the interface is implemented in another project 
+ - the other project is **referenced over an transient project reference**
 
  In this case the base form still can be designed. The designer however crashes when openening the derived form. The error disappears as soon a direct project reference is added.
 
